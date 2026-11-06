@@ -2,6 +2,40 @@
 -- PostgreSQL database dump
 --
 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- Tabla de vendedores
+CREATE TABLE "vendedores" (
+    "vendedorId" TEXT NOT NULL DEFAULT uuid_generate_v4(),
+    "nombreVendedor" TEXT NOT NULL,
+    "comision" DOUBLE PRECISION NOT NULL,
+
+    CONSTRAINT "vendedores_pkey" PRIMARY KEY ("vendedorId")
+);
+
+-- Tabla de productos
+CREATE TABLE "productos" (
+    "productoId" TEXT NOT NULL DEFAULT uuid_generate_v4(),
+    "nombreProducto" TEXT NOT NULL,
+    "valorUnitario" DOUBLE PRECISION NOT NULL,
+    "stock" INTEGER NOT NULL,
+
+    CONSTRAINT "productos_pkey" PRIMARY KEY ("productoId")
+);
+
+-- Tabla de ventas (con relaciones y eliminación en cascada)
+CREATE TABLE "ventas" (
+    "ventaId" TEXT NOT NULL DEFAULT uuid_generate_v4(),
+    "vendedorId" TEXT NOT NULL,
+    "productoId" TEXT NOT NULL,
+    "cantidad" INTEGER NOT NULL,
+    "valorTotal" DOUBLE PRECISION NOT NULL,
+
+    CONSTRAINT "ventas_pkey" PRIMARY KEY ("ventaId"),
+    CONSTRAINT "ventas_vendedorId_fkey" FOREIGN KEY ("vendedorId") REFERENCES "vendedores"("vendedorId") ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "ventas_productoId_fkey" FOREIGN KEY ("productoId") REFERENCES "productos"("productoId") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 \restrict G4ZfX39S4KXEIxHPWBiCMhoGh9KzYqVLq78iicDhBgwjAYMr6btkJjYrYH44TiA
 
 -- Dumped from database version 15.19
