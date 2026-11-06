@@ -38,11 +38,11 @@ export const createVendedor = async (req: Request, res: Response) => {
             },
         });
         res.status(201).json({ mensaje: 'Vendedor creado con éxito', vendedor: nuevoVendedor });
-    } catch (error) {
-        res.status(500).json({ error: 'Error al crear el vendedor' });
+    } catch (error: any) {
+        console.error('ERROR DETALLADO EN PRISMA:', error);
+        res.status(500).json({ error: error.message || 'Error al crear el vendedor' });
     }
 };
-
 export const updateVendedor = async (req: Request, res: Response) => {
     try {
         const id = req.params.id as string;

@@ -6,6 +6,9 @@ import vendedorRoutes from './routes/vendedor.routes';
 
 const app = express();
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 app.set('trust proxy', 'loopback, uniquelocal');
 
 const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:4200')

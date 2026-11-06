@@ -61,7 +61,11 @@ export class VendedorComponent implements OnInit {
 
     onSubmit() {
         if (this.vendedorForm.valid) {
-            this.apiService.createVendedor(this.vendedorForm.value).subscribe({
+            const formData = {
+                ...this.vendedorForm.value,
+                comision: Number(this.vendedorForm.value.comision)
+            };
+            this.apiService.createVendedor(formData).subscribe({
                 next: () => {
                     this.cargarVendedores();
                     this.vendedorForm.reset({ comision: 0 });
