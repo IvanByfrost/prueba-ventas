@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import ventaRoutes from './routes/venta.routes';
+import productoRoutes from './routes/producto.routes';
+import vendedorRoutes from './routes/vendedor.routes';
 
 const app = express();
 
@@ -18,5 +20,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/api/ventas', ventaRoutes);
+app.use('/api/productos', productoRoutes);
+app.use('/api/vendedores', vendedorRoutes);
 
 export default app;
