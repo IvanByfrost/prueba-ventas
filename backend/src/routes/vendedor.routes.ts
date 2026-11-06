@@ -5,7 +5,7 @@ import {
     createVendedor,
     updateVendedor,
     deleteVendedor
-} from '../controllers/vendedor.controller';
+} from '../controllers/vendedor.controller.ts';
 
 const router = Router();
 

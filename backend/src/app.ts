@@ -23,4 +23,10 @@ app.use('/api/ventas', ventaRoutes);
 app.use('/api/productos', productoRoutes);
 app.use('/api/vendedores', vendedorRoutes);
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:\${PORT}`);
+});
+
+
 export default app;

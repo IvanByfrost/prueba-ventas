@@ -4,7 +4,8 @@
     "express": "^5.3.0"
   },
   "scripts": {
-    "postinstall": "prisma skills sync || exit 0"
+    "start": "node --exec tsx src/app.ts",
+    "dev": "nodemon --exec tsx src/app.ts"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -12,8 +13,10 @@
     "@types/node": "^26.6.6",
     "cors": "^2.8.6",
     "i": "^0.3.7",
+    "nodemon": "^3.1.14",
     "npm": "^12.2.2",
     "prisma": "^6.5.0",
+    "tsx": "^4.23.15",
     "y": "^0.3.2"
   }
 }
