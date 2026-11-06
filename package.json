@@ -1,0 +1,25 @@
+{
+  "name": "prueba-ventas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "prisma skills sync || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanByfrost/prueba-ventas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/IvanByfrost/prueba-ventas/issues"
+  },
+  "homepage": "https://github.com/IvanByfrost/prueba-ventas#readme",
+  "devDependencies": {
+    "prisma": "8.0.0-rc.30"
+  }
+}
