@@ -20,6 +20,7 @@ model producto {
   productoId     String  @id @default(uuid())
   nombreProducto String
   valorUnitario  Float
+  stock          Int
   ventas         venta[]
 
   @@map("productos")
@@ -29,6 +30,7 @@ model venta {
   ventaId    String   @id @default(uuid())
   vendedorId String
   productoId String
+  cantidad   Int
   valorTotal Float
   
   vendedor   vendedor @relation(fields: [vendedorId], references: [vendedorId], onDelete: Cascade)
